@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Colca Artesanías</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    .contact-info {
+      background: linear-gradient(160deg, #1A100A, #2C1A0E);
+      padding: 10rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-info h1 { color: var(--sand); margin-bottom: 1.5rem; }
+    .contact-info p  { color: rgba(242,232,217,0.65); line-height: 1.8; font-size: 1rem; max-width: 400px; }
+
+    .contact-details { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-item__icon { color: var(--clay); font-size: 1.2rem; margin-top: 2px; }
+    .contact-item__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .contact-item__value { color: rgba(242,232,217,0.7); font-size: 0.95rem; }
+
+    .contact-form-wrap {
+      background: var(--sand-light);
+      padding: 8rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-form-wrap h2 { margin-bottom: 0.75rem; }
+    .contact-form-wrap > p { font-size: 0.95rem; color: #5a3d28; margin-bottom: 2.5rem; }
+
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1.5px solid rgba(196,118,74,0.2);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--clay); }
+    .form-group textarea { min-height: 130px; resize: vertical; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit { width: 100%; margin-top: 0.5rem; justify-content: center; font-size: 0.85rem; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(196,118,74,0.08);
+      border: 1px solid rgba(196,118,74,0.3);
+      border-radius: var(--radius-lg);
+      margin-top: 1.5rem;
+    }
+    .form-success.visible { display: block; }
+    .form-success h3 { color: var(--clay); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.9rem; color: #5a3d28; }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-info { padding: 7rem 2rem 3rem; }
+      .contact-form-wrap { padding: 3rem 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-enter">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__logo">
+      <a href="../index.html" style="display:flex;align-items:center;gap:0.6rem">
+        <span class="nav__logo-icon">◈</span>
+        <span class="nav__logo-text">Colca <em>Artesanías</em></span>
+      </a>
+    </div>
+    <ul class="nav__links">
+      <li><a href="../index.html#nosotros">Nosotros</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="artesanos.html">Artesanos</a></li>
+      <li><a href="../index.html#mercados">Mercados</a></li>
+      <li><a href="#" style="color:#C4764A">Contacto</a></li>
+    </ul>
+    <a href="catalogo.html" class="nav__cta">Ver catálogo</a>
+    <button class="nav__burger" id="navBurger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="contact-layout">
+
+    <!-- INFO -->
+    <div class="contact-info">
+      <p class="label label--center" style="text-align:left">Colca Artesanías</p>
+      <h1>Hablemos <em>del Colca</em></h1>
+      <p>¿Tienes preguntas sobre un pedido, personalización o quieres ser parte de nuestra red de artesanos? Escríbenos.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-item__icon">◉</span>
+          <div>
+            <span class="contact-item__label">Email</span>
+            <span class="contact-item__value">hola@colcaartesanias.pe</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__icon">◉</span>
+          <div>
+            <span class="contact-item__label">Ubicación</span>
+            <span class="contact-item__value">Valle del Colca, Arequipa, Perú</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__icon">◉</span>
+          <div>
+            <span class="contact-item__label">WhatsApp</span>
+            <span class="contact-item__value">+51 954 xxx xxx</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__icon">◉</span>
+          <div>
+            <span class="contact-item__label">Horario</span>
+            <span class="contact-item__value">Lun–Vie 9am–6pm (PET)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <p class="label">Formulario de contacto</p>
+      <h2>Envía tu <em>mensaje</em></h2>
+      <p>Respondemos en menos de 24 horas. También puedes escribirnos en inglés, japonés o alemán.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="tu@email.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pais">País</label>
+            <select id="pais">
+              <option value="">Selecciona tu país...</option>
+              <option>Estados Unidos</option>
+              <option>Japón</option>
+              <option>Canadá</option>
+              <option>Alemania</option>
+              <option>Francia</option>
+              <option>Italia</option>
+              <option>Corea del Sur</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tipo">Tipo de consulta</label>
+            <select id="tipo">
+              <option value="">Selecciona...</option>
+              <option>Pedido internacional</option>
+              <option>Personalización</option>
+              <option>Unirme como artesano</option>
+              <option>Información de envíos</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form-submit">Enviar mensaje</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <h3>◈ ¡Mensaje enviado!</h3>
+        <p>Gracias por contactarnos. Te responderemos en menos de 24 horas hábiles.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate form submission
+      this.style.opacity = '0.5';
+      this.style.pointerEvents = 'none';
+      setTimeout(() => {
+        this.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }, 800);
+    });
+  </script>
+</body>
+</html>

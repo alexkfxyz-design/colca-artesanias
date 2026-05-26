@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artesanos — Colca Artesanías</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(160deg, #1A100A, #2C1A0E);
+      padding: 8rem 3rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(196,118,74,0.2);
+    }
+    .page-header h1 { color: var(--sand); margin-bottom: 1rem; }
+    .page-header p  { color: rgba(242,232,217,0.6); font-size: 1.05rem; max-width: 520px; margin: 0 auto; }
+
+    .artisans-section { padding: 5rem 0; background: var(--sand-light); }
+
+    .artisan-profile {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
+      align-items: start;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(196,118,74,0.1);
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.3s;
+    }
+    .artisan-profile:hover { box-shadow: 0 12px 48px rgba(196,118,74,0.1); }
+
+    .artisan-profile__img {
+      height: 100%;
+      min-height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    .artisan-profile__img--1 { background: linear-gradient(160deg,#8B4513,#C4764A 60%,#7A4028); }
+    .artisan-profile__img--2 { background: linear-gradient(160deg,#5D4037,#8D6E63 60%,#3E2723); }
+    .artisan-profile__img--3 { background: linear-gradient(160deg,#2D6B6B,#4ECDC4 60%,#1A4040); }
+    .artisan-profile__img--4 { background: linear-gradient(160deg,#6D4C41,#A1887F 60%,#4E342E); }
+    .artisan-profile__img--5 { background: linear-gradient(160deg,#4E342E,#795548 60%,#3E2723); }
+
+    .artisan-profile__body { padding: 2.5rem 2.5rem 2.5rem 0; }
+    .artisan-profile__tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .artisan-profile__body h2 { font-size: 2rem; margin-bottom: 0.4rem; }
+    .artisan-profile__village {
+      font-size: 0.85rem;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+    .artisan-profile__body p { font-size: 0.95rem; color: #5a3d28; line-height: 1.75; margin-bottom: 1.5rem; }
+    .artisan-profile__skills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .skill-tag {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(196,118,74,0.1);
+      color: var(--clay);
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .artisan-profile__metrics {
+      display: flex;
+      gap: 2rem;
+    }
+    .metric strong { display: block; font-family: var(--font-display); font-size: 1.8rem; color: var(--clay); }
+    .metric span   { font-size: 0.75rem; color: #7a5c42; }
+
+    .impact-band {
+      background: var(--bark);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .impact-band h2 { color: var(--sand); margin-bottom: 3rem; }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .impact-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--clay);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .impact-item span { font-size: 0.85rem; color: rgba(242,232,217,0.55); }
+
+    @media (max-width: 768px) {
+      .artisan-profile { grid-template-columns: 1fr; }
+      .artisan-profile__img { min-height: 220px; }
+      .artisan-profile__body { padding: 1.5rem; }
+      .impact-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body class="page-enter">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__logo">
+      <a href="../index.html" style="display:flex;align-items:center;gap:0.6rem">
+        <span class="nav__logo-icon">◈</span>
+        <span class="nav__logo-text">Colca <em>Artesanías</em></span>
+      </a>
+    </div>
+    <ul class="nav__links">
+      <li><a href="../index.html#nosotros">Nosotros</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="#" style="color:#C4764A">Artesanos</a></li>
+      <li><a href="../index.html#mercados">Mercados</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="catalogo.html" class="nav__cta">Ver catálogo</a>
+    <button class="nav__burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <p class="label label--center">Comunidad Colca</p>
+    <h1>Los <em>Artesanos</em></h1>
+    <p>Cada artesano tiene nombre, historia y comunidad. Conoce a quienes dan vida a cada pieza que llevas a casa.</p>
+  </div>
+
+  <!-- Impact band -->
+  <div class="impact-band">
+    <div class="container">
+      <h2 class="reveal">Impacto <em>real</em> en la comunidad</h2>
+      <div class="impact-grid">
+        <div class="impact-item reveal">
+          <strong>47+</strong>
+          <span>artesanos registrados activos en la plataforma</span>
+        </div>
+        <div class="impact-item reveal">
+          <strong>8</strong>
+          <span>comunidades del Valle del Colca representadas</span>
+        </div>
+        <div class="impact-item reveal">
+          <strong>92%</strong>
+          <span>del precio va directo al artesano sin intermediarios</span>
+        </div>
+        <div class="impact-item reveal">
+          <strong>178</strong>
+          <span>países a los que podemos enviar sus creaciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="artisans-section">
+    <div class="container">
+
+      <div class="artisan-profile reveal">
+        <div class="artisan-profile__img artisan-profile__img--1"></div>
+        <div class="artisan-profile__body">
+          <span class="artisan-profile__tag">Artesana destacada · Textiles</span>
+          <h2>María Quispe</h2>
+          <span class="artisan-profile__village">◎ Chivay, Valle del Colca</span>
+          <p>Tejedora con 30 años de experiencia en telares ancestrales Collagua. Sus mantas de alpaca son reconocidas por su calidad excepcional y el uso de tintes naturales extraídos de plantas andinas como la cochinilla y el añil.</p>
+          <p>Aprendió el oficio de su madre y abuela. Cada diseño geométrico cuenta una historia del Valle del Colca: el cóndor, el cañón, las estrellas andinas.</p>
+          <div class="artisan-profile__skills">
+            <span class="skill-tag">Tejido en telar</span>
+            <span class="skill-tag">Alpaca premium</span>
+            <span class="skill-tag">Tintes naturales</span>
+            <span class="skill-tag">Mantas</span>
+            <span class="skill-tag">Chullos</span>
+          </div>
+          <div class="artisan-profile__metrics">
+            <div class="metric"><strong>47</strong><span>piezas vendidas</span></div>
+            <div class="metric"><strong>12</strong><span>países destino</span></div>
+            <div class="metric"><strong>4.9★</strong><span>valoración</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artisan-profile reveal">
+        <div class="artisan-profile__img artisan-profile__img--2"></div>
+        <div class="artisan-profile__body">
+          <span class="artisan-profile__tag">Artesano destacado · Cerámica</span>
+          <h2>José Condori</h2>
+          <span class="artisan-profile__village">◎ Cabanaconde, Colca</span>
+          <p>Alfarero de tercera generación especializado en técnicas prehispánicas. Trabaja con arcilla local del Valle del Colca y usa hornos de barro tradicionales para lograr acabados únicos imposibles de replicar industrialmente.</p>
+          <p>Sus vasijas y figuras decorativas están inspiradas en la iconografía Wari y Tiahuanaco, adaptada con elementos propios del Colca contemporáneo.</p>
+          <div class="artisan-profile__skills">
+            <span class="skill-tag">Alfarería prehispánica</span>
+            <span class="skill-tag">Arcilla local</span>
+            <span class="skill-tag">Horno de barro</span>
+            <span class="skill-tag">Figuras decorativas</span>
+          </div>
+          <div class="artisan-profile__metrics">
+            <div class="metric"><strong>83</strong><span>piezas vendidas</span></div>
+            <div class="metric"><strong>18</strong><span>países destino</span></div>
+            <div class="metric"><strong>4.8★</strong><span>valoración</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artisan-profile reveal">
+        <div class="artisan-profile__img artisan-profile__img--3"></div>
+        <div class="artisan-profile__body">
+          <span class="artisan-profile__tag">Artesana destacada · Joyería</span>
+          <h2>Rosa Huanca</h2>
+          <span class="artisan-profile__village">◎ Yanque, Valle del Colca</span>
+          <p>Joyera que fusiona la tradición orfebre andina con el diseño contemporáneo. Trabaja exclusivamente con plata 925 y piedras locales: turquesa, lapislázuli y cuarzo andino. Cada pieza es única y viene con certificado de autenticidad.</p>
+          <p>Sus diseños han sido exhibidos en Perú Moda Deco 2024 y tienen presencia en boutiques de Lima y exportación a Europa.</p>
+          <div class="artisan-profile__skills">
+            <span class="skill-tag">Plata 925</span>
+            <span class="skill-tag">Piedras andinas</span>
+            <span class="skill-tag">Orfebrería</span>
+            <span class="skill-tag">Diseño contemporáneo</span>
+          </div>
+          <div class="artisan-profile__metrics">
+            <div class="metric"><strong>62</strong><span>piezas vendidas</span></div>
+            <div class="metric"><strong>15</strong><span>países destino</span></div>
+            <div class="metric"><strong>5.0★</strong><span>valoración</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artisan-profile reveal">
+        <div class="artisan-profile__img artisan-profile__img--4"></div>
+        <div class="artisan-profile__body">
+          <span class="artisan-profile__tag">Artesano · Madera tallada</span>
+          <h2>Pedro Flores</h2>
+          <span class="artisan-profile__village">◎ Achoma, Valle del Colca</span>
+          <p>Tallista en madera de queñoa y molle, especies nativas de los Andes. Sus cajas, instrumentos y figuras preservan técnicas de talla precolombina adaptadas para el mercado contemporáneo de decoración y coleccionismo.</p>
+          <div class="artisan-profile__skills">
+            <span class="skill-tag">Talla en madera</span>
+            <span class="skill-tag">Queñoa andina</span>
+            <span class="skill-tag">Instrumentos</span>
+            <span class="skill-tag">Cajas decorativas</span>
+          </div>
+          <div class="artisan-profile__metrics">
+            <div class="metric"><strong>35</strong><span>piezas vendidas</span></div>
+            <div class="metric"><strong>9</strong><span>países destino</span></div>
+            <div class="metric"><strong>4.7★</strong><span>valoración</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <p>© 2025 Colca Artesanías · Valle del Colca, Arequipa, Perú</p>
+        <p><a href="../index.html" style="color:rgba(242,232,217,0.5)">← Volver al inicio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

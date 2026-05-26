@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — Colca Artesanías</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(160deg, #1A100A, #2C1A0E);
+      padding: 8rem 3rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(196,118,74,0.2);
+    }
+    .page-header h1 { color: var(--sand); margin-bottom: 1rem; }
+    .page-header p  { color: rgba(242,232,217,0.6); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+
+    .catalog-section { padding: 5rem 0; background: var(--sand-light); }
+
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border: 1.5px solid rgba(196,118,74,0.3);
+      border-radius: 30px;
+      background: transparent;
+      color: #5a3d28;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--clay);
+      color: var(--white);
+      border-color: var(--clay);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(196,118,74,0.1);
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(196,118,74,0.12);
+    }
+
+    .product-card__img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .product-card__badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background: var(--clay);
+      color: var(--white);
+    }
+    .product-card__body { padding: 1.25rem; }
+    .product-card__category {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 0.4rem;
+    }
+    .product-card__body h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .product-card__artisan { font-size: 0.8rem; color: #7a5c42; margin-bottom: 0.75rem; }
+    .product-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(196,118,74,0.1);
+    }
+    .product-card__price { font-family: var(--font-display); font-size: 1.4rem; color: var(--clay); }
+    .product-card__btn {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      background: var(--clay);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: var(--font-body);
+    }
+    .product-card__btn:hover { background: var(--clay-dark); }
+  </style>
+</head>
+<body class="page-enter">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__logo">
+      <a href="../index.html" style="display:flex;align-items:center;gap:0.6rem">
+        <span class="nav__logo-icon">◈</span>
+        <span class="nav__logo-text">Colca <em>Artesanías</em></span>
+      </a>
+    </div>
+    <ul class="nav__links">
+      <li><a href="../index.html#nosotros">Nosotros</a></li>
+      <li><a href="#" style="color:#C4764A">Catálogo</a></li>
+      <li><a href="artesanos.html">Artesanos</a></li>
+      <li><a href="../index.html#mercados">Mercados</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="nav__cta">Contactar</a>
+    <button class="nav__burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-header">
+    <p class="label label--center">Colca Artesanías</p>
+    <h1>Catálogo <em>Artesanal</em></h1>
+    <p>Piezas únicas del Valle del Colca. Cada artesanía tiene historia, origen verificado y envío internacional incluido.</p>
+  </div>
+
+  <section class="catalog-section">
+    <div class="container">
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="textiles">Textiles</button>
+        <button class="filter-btn" data-filter="ceramica">Cerámica</button>
+        <button class="filter-btn" data-filter="joyeria">Joyería</button>
+        <button class="filter-btn" data-filter="madera">Madera</button>
+        <button class="filter-btn" data-filter="decoracion">Decoración</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <p>© 2025 Colca Artesanías · Valle del Colca, Arequipa, Perú</p>
+        <p><a href="../index.html" style="color:rgba(242,232,217,0.5)">← Volver al inicio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const products = [
+      { id:1, name:'Manta de Alpaca Collagua', category:'textiles', artisan:'María Quispe · Chivay', price:'USD 85', badge:'Más vendido',
+        bg:'linear-gradient(135deg,#8B4513,#C4764A 50%,#7A4028)' },
+      { id:2, name:'Chullo Tradicional Andino', category:'textiles', artisan:'Carmen Ccoa · Yanque', price:'USD 35', badge:null,
+        bg:'linear-gradient(135deg,#A0522D,#D2691E 50%,#8B4513)' },
+      { id:3, name:'Tapiz Geométrico Colca', category:'textiles', artisan:'Elena Mamani · Cabanaconde', price:'USD 120', badge:'Edición limitada',
+        bg:'linear-gradient(135deg,#6B3A2A,#B5651D 50%,#5C2E1A)' },
+      { id:4, name:'Vasija Prehispánica', category:'ceramica', artisan:'José Condori · Cabanaconde', price:'USD 60', badge:null,
+        bg:'linear-gradient(135deg,#5D4037,#8D6E63 50%,#3E2723)' },
+      { id:5, name:'Cuenco Ritual Andino', category:'ceramica', artisan:'Luis Huanca · Chivay', price:'USD 45', badge:null,
+        bg:'linear-gradient(135deg,#6D4C41,#A1887F 50%,#4E342E)' },
+      { id:6, name:'Figura Cóndor Colca', category:'ceramica', artisan:'José Condori · Cabanaconde', price:'USD 78', badge:'Artesanal',
+        bg:'linear-gradient(135deg,#4E342E,#795548 50%,#3E2723)' },
+      { id:7, name:'Aretes Plata Collagua', category:'joyeria', artisan:'Rosa Huanca · Yanque', price:'USD 48', badge:null,
+        bg:'linear-gradient(135deg,#2D6B6B,#4ECDC4 50%,#1A4040)' },
+      { id:8, name:'Collar Turquesa Andina', category:'joyeria', artisan:'Rosa Huanca · Yanque', price:'USD 95', badge:'Premium',
+        bg:'linear-gradient(135deg,#1A4040,#3D8C8C 50%,#0D2626)' },
+      { id:9, name:'Pulsera Plata Tejida', category:'joyeria', artisan:'Ana Quispe · Yanque', price:'USD 32', badge:null,
+        bg:'linear-gradient(135deg,#264653,#2A9D8F 50%,#1A3344)' },
+      { id:10, name:'Caja Tallada Queñoa', category:'madera', artisan:'Pedro Flores · Achoma', price:'USD 55', badge:null,
+        bg:'linear-gradient(135deg,#6D4C41,#A1887F 50%,#4E342E)' },
+      { id:11, name:'Instrumento Zampoña', category:'madera', artisan:'Miguel Ccari · Chivay', price:'USD 42', badge:null,
+        bg:'linear-gradient(135deg,#5D4037,#8D6E63 50%,#3E2723)' },
+      { id:12, name:'Cuadro Paisaje Colca', category:'decoracion', artisan:'Sofía Mamani · Chivay', price:'USD 110', badge:'Exclusivo',
+        bg:'linear-gradient(135deg,#2C3E50,#3D7A5C 50%,#1A2A1A)' },
+    ];
+
+    function renderProducts(filter) {
+      const grid = document.getElementById('productsGrid');
+      const list = filter === 'all' ? products : products.filter(p => p.category === filter);
+      grid.innerHTML = list.map(p => `
+        <div class="product-card reveal" data-cat="${p.category}">
+          <div class="product-card__img" style="background:${p.bg}">
+            ${p.badge ? `<span class="product-card__badge">${p.badge}</span>` : ''}
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__category">${p.category}</div>
+            <h3>${p.name}</h3>
+            <p class="product-card__artisan">◎ ${p.artisan}</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">${p.price}</span>
+              <button class="product-card__btn">Ver detalle</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Re-observe reveals
+      grid.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.06}s`;
+        setTimeout(() => {
+          const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+          }, { threshold: 0.1 });
+          obs.observe(el);
+        }, 50);
+      });
+    }
+
+    // Filter buttons
+    document.getElementById('filterBar').addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      renderProducts(e.target.dataset.filter);
+    });
+
+    // Initial render
+    renderProducts('all');
+
+    // Pre-select category from URL param
+    const urlCat = new URLSearchParams(location.search).get('cat');
+    if (urlCat) {
+      const btn = document.querySelector(`[data-filter="${urlCat}"]`);
+      if (btn) { btn.click(); }
+    }
+  </script>
+</body>
+</html>
