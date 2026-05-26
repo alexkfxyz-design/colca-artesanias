@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colca Artesanías — Artesanía del Valle del Colca al Mundo</title>
+  <meta name="description" content="Plataforma que conecta artesanos del Valle del Colca con compradores internacionales. Artesanías auténticas, historias únicas, envío mundial." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-icon">◈</span>
+      <span class="nav__logo-text">Colca <em>Artesanías</em></span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#artesanos">Artesanos</a></li>
+      <li><a href="#mercados">Mercados</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="pages/catalogo.html" class="nav__cta">Explorar tienda</a>
+    <button class="nav__burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero__bg">
+      <div class="hero__texture"></div>
+      <div class="hero__gradient"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Valle del Colca · Arequipa, Perú</p>
+      <h1 class="hero__title reveal">
+        Artesanía que<br/>
+        <em>narra la historia</em><br/>
+        de los Andes
+      </h1>
+      <p class="hero__subtitle reveal">
+        Conectamos artesanos auténticos del Colca con compradores internacionales.<br/>
+        Cada pieza tiene una historia. Cada compra apoya una comunidad.
+      </p>
+      <div class="hero__actions reveal">
+        <a href="pages/catalogo.html" class="btn btn--primary">Explorar catálogo</a>
+        <a href="#nosotros" class="btn btn--ghost">Conocer el proyecto</a>
+      </div>
+    </div>
+    <div class="hero__stats reveal">
+      <div class="stat">
+        <span class="stat__num" data-target="178">0</span>
+        <span class="stat__label">mercados internacionales</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-target="74" data-suffix="B">0</span>
+        <span class="stat__label">USD exportaciones Perú 2024</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-target="7" data-suffix=" países">0</span>
+        <span class="stat__label">destinos prioritarios</span>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ── PROPUESTA DE VALOR ─────────────────────────────────────────────────── -->
+  <section class="value-prop" id="nosotros">
+    <div class="container">
+      <div class="value-prop__grid">
+        <div class="value-prop__text">
+          <p class="label reveal">Nuestra misión</p>
+          <h2 class="reveal">Eliminamos las barreras entre<br/><em>el artesano y el mundo</em></h2>
+          <p class="body-text reveal">
+            Nuestra plataforma digitaliza la oferta artesanal del Colca y la conecta directamente con compradores internacionales —sin intermediarios, con transparencia total en costos, origen y tiempos de entrega.
+          </p>
+          <ul class="value-list reveal">
+            <li>
+              <span class="value-list__icon">◎</span>
+              <div>
+                <strong>Autenticidad verificada</strong>
+                <p>Certificamos el origen y la identidad de cada artesano y pieza.</p>
+              </div>
+            </li>
+            <li>
+              <span class="value-list__icon">◎</span>
+              <div>
+                <strong>Compra sin intermediarios</strong>
+                <p>El precio justo va directo al artesano. Tú pagas menos; ellos ganan más.</p>
+              </div>
+            </li>
+            <li>
+              <span class="value-list__icon">◎</span>
+              <div>
+                <strong>Logística integrada</strong>
+                <p>Calculamos el envío automáticamente. Couriers internacionales certificados.</p>
+              </div>
+            </li>
+            <li>
+              <span class="value-list__icon">◎</span>
+              <div>
+                <strong>Impacto social medible</strong>
+                <p>Cada compra financia directamente comunidades artesanales del Valle del Colca.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="value-prop__visual reveal">
+          <div class="vp-card">
+            <div class="vp-card__tag">Propuesta de Valor</div>
+            <p class="vp-card__text">
+              "Conectamos artesanos del Colca con compradores internacionales, ofreciendo artesanías auténticas, historias únicas y una experiencia de compra simple, segura y significativa."
+            </p>
+            <div class="vp-card__divider"></div>
+            <div class="vp-card__stats">
+              <div>
+                <strong>+15.6%</strong>
+                <span>crecimiento exportaciones Perú 2024</span>
+              </div>
+              <div>
+                <strong>S/ 93M</strong>
+                <span>Perú Moda Deco 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ─────────────────────────────────────────────────────── -->
+  <section class="how-it-works">
+    <div class="container">
+      <p class="label label--center reveal">Proceso</p>
+      <h2 class="text-center reveal">Simple. Transparente. <em>Directo.</em></h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__number">01</div>
+          <div class="step__icon">◉</div>
+          <h3>Explora el catálogo</h3>
+          <p>Navega cientos de piezas únicas con historia del artesano, materiales y técnica de elaboración.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step reveal">
+          <div class="step__number">02</div>
+          <div class="step__icon">◈</div>
+          <h3>Personaliza tu pedido</h3>
+          <p>Solicita personalización directa al artesano. Tallas, colores, grabados especiales.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step reveal">
+          <div class="step__number">03</div>
+          <div class="step__icon">◇</div>
+          <h3>Pago seguro</h3>
+          <p>Pasarela internacional con múltiples divisas. Precio final sin sorpresas incluye envío.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step reveal">
+          <div class="step__number">04</div>
+          <div class="step__icon">◆</div>
+          <h3>Recibe en tu puerta</h3>
+          <p>Tracking en tiempo real. Couriers certificados a 178 países en 7–21 días hábiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORÍAS / CATÁLOGO PREVIEW ─────────────────────────────────────── -->
+  <section class="catalog-preview" id="catalogo">
+    <div class="container">
+      <p class="label reveal">Catálogo</p>
+      <h2 class="reveal">Artesanías del <em>Valle del Colca</em></h2>
+      <div class="categories reveal">
+        <a href="pages/catalogo.html?cat=textiles" class="category-card">
+          <div class="category-card__bg category-card__bg--textiles"></div>
+          <div class="category-card__content">
+            <span class="category-card__tag">Tejidos &amp; Textiles</span>
+            <h3>Tejidos en telar</h3>
+            <p>Alpaca, lana de ovino, técnicas ancestrales. Mantas, chullos, tapices.</p>
+            <span class="category-card__cta">Ver colección →</span>
+          </div>
+        </a>
+        <a href="pages/catalogo.html?cat=ceramica" class="category-card">
+          <div class="category-card__bg category-card__bg--ceramica"></div>
+          <div class="category-card__content">
+            <span class="category-card__tag">Cerámica</span>
+            <h3>Alfarería andina</h3>
+            <p>Vasijas, cuencos y figuras decorativas con diseños precolombinos.</p>
+            <span class="category-card__cta">Ver colección →</span>
+          </div>
+        </a>
+        <a href="pages/catalogo.html?cat=joyeria" class="category-card">
+          <div class="category-card__bg category-card__bg--joyeria"></div>
+          <div class="category-card__content">
+            <span class="category-card__tag">Joyería</span>
+            <h3>Plata y piedras andinas</h3>
+            <p>Pendientes, collares y pulseras con plata trabajada a mano.</p>
+            <span class="category-card__cta">Ver colección →</span>
+          </div>
+        </a>
+        <a href="pages/catalogo.html?cat=madera" class="category-card">
+          <div class="category-card__bg category-card__bg--madera"></div>
+          <div class="category-card__content">
+            <span class="category-card__tag">Madera &amp; Cuero</span>
+            <h3>Tallado artesanal</h3>
+            <p>Figuras, instrumentos y artículos de cuero con motivos del Colca.</p>
+            <span class="category-card__cta">Ver colección →</span>
+          </div>
+        </a>
+      </div>
+      <div class="text-center reveal" style="margin-top:3rem">
+        <a href="pages/catalogo.html" class="btn btn--primary">Ver todo el catálogo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARTESANOS ──────────────────────────────────────────────────────────── -->
+  <section class="artisans" id="artesanos">
+    <div class="container">
+      <p class="label reveal">Comunidad</p>
+      <h2 class="reveal">Conoce a los <em>artesanos</em></h2>
+      <p class="section-desc reveal">Cada pieza lleva el nombre, la historia y el rostro del artesano que la creó. Transparencia total desde el origen.</p>
+      <div class="artisans__grid">
+        <div class="artisan-card reveal">
+          <div class="artisan-card__img artisan-card__img--1"></div>
+          <div class="artisan-card__body">
+            <h3>María Quispe</h3>
+            <span class="artisan-card__village">Chivay, Valle del Colca</span>
+            <p>Tejedora con 30 años de experiencia en telares ancestrales. Especialista en mantas de alpaca con diseños geométricos andinos.</p>
+            <div class="artisan-card__meta">
+              <span>◎ Textiles</span>
+              <span>◎ 47 piezas vendidas</span>
+            </div>
+          </div>
+        </div>
+        <div class="artisan-card reveal">
+          <div class="artisan-card__img artisan-card__img--2"></div>
+          <div class="artisan-card__body">
+            <h3>José Condori</h3>
+            <span class="artisan-card__village">Cabanaconde, Colca</span>
+            <p>Alfarero de tercera generación. Trabaja con arcilla local y técnicas prehispánicas para crear piezas decorativas únicas.</p>
+            <div class="artisan-card__meta">
+              <span>◎ Cerámica</span>
+              <span>◎ 83 piezas vendidas</span>
+            </div>
+          </div>
+        </div>
+        <div class="artisan-card reveal">
+          <div class="artisan-card__img artisan-card__img--3"></div>
+          <div class="artisan-card__body">
+            <h3>Rosa Huanca</h3>
+            <span class="artisan-card__village">Yanque, Valle del Colca</span>
+            <p>Joyera especializada en plata trabajada a mano. Sus diseños fusionan símbolos Collagua con estética contemporánea.</p>
+            <div class="artisan-card__meta">
+              <span>◎ Joyería</span>
+              <span>◎ 62 piezas vendidas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center reveal" style="margin-top:3rem">
+        <a href="pages/artesanos.html" class="btn btn--outline">Ver todos los artesanos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MERCADOS ───────────────────────────────────────────────────────────── -->
+  <section class="markets" id="mercados">
+    <div class="container">
+      <p class="label reveal">Exportación</p>
+      <h2 class="reveal">¿A dónde <em>exportamos?</em></h2>
+      <p class="section-desc reveal">Mercados priorizados con alta demanda de artesanía auténtica, comercio justo y productos culturales peruanos.</p>
+      <div class="markets__grid">
+        <div class="market-card reveal" data-country="us">
+          <div class="market-card__flag">🇺🇸</div>
+          <div class="market-card__info">
+            <h3>Estados Unidos</h3>
+            <p>Alto consumo de artesanías y comercio étnico. Diaspora latina y mercado de decoración premium.</p>
+          </div>
+          <div class="market-card__tag">Prioritario</div>
+        </div>
+        <div class="market-card reveal" data-country="jp">
+          <div class="market-card__flag">🇯🇵</div>
+          <div class="market-card__info">
+            <h3>Japón</h3>
+            <p>Valoración de productos hechos a mano y textiles tradicionales con alto nivel artesanal.</p>
+          </div>
+          <div class="market-card__tag">Alto valor</div>
+        </div>
+        <div class="market-card reveal" data-country="ca">
+          <div class="market-card__flag">🇨🇦</div>
+          <div class="market-card__info">
+            <h3>Canadá</h3>
+            <p>Mercado de comercio justo y consumo responsable con fuerte conciencia social.</p>
+          </div>
+          <div class="market-card__tag">Comercio justo</div>
+        </div>
+        <div class="market-card reveal" data-country="de">
+          <div class="market-card__flag">🇩🇪</div>
+          <div class="market-card__info">
+            <h3>Alemania</h3>
+            <p>Interés en productos sostenibles y de origen cultural. Fuerte mercado de decoración ecológica.</p>
+          </div>
+          <div class="market-card__tag">Sostenible</div>
+        </div>
+        <div class="market-card reveal" data-country="fr">
+          <div class="market-card__flag">🇫🇷</div>
+          <div class="market-card__info">
+            <h3>Francia</h3>
+            <p>Mercado premium de decoración y artesanía con identidad cultural y diseño.</p>
+          </div>
+          <div class="market-card__tag">Premium</div>
+        </div>
+        <div class="market-card reveal" data-country="it">
+          <div class="market-card__flag">🇮🇹</div>
+          <div class="market-card__info">
+            <h3>Italia</h3>
+            <p>Demanda de textiles y diseño cultural artesanal. Moda y decoración de alta gama.</p>
+          </div>
+          <div class="market-card__tag">Moda & Diseño</div>
+        </div>
+        <div class="market-card reveal" data-country="kr">
+          <div class="market-card__flag">🇰🇷</div>
+          <div class="market-card__info">
+            <h3>Corea del Sur</h3>
+            <p>Crecimiento del interés por cultura latinoamericana y productos únicos de origen.</p>
+          </div>
+          <div class="market-card__tag">En crecimiento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ─────────────────────────────────────────────────────────── -->
+  <section class="cta-section" id="contacto">
+    <div class="cta-section__bg"></div>
+    <div class="container">
+      <div class="cta-box reveal">
+        <p class="label label--light">¿Listo para empezar?</p>
+        <h2>Trae el Colca<br/><em>a tu hogar</em></h2>
+        <p>Explora nuestra colección o regístrate como comprador internacional. Envíos seguros a más de 178 países.</p>
+        <div class="cta-box__actions">
+          <a href="pages/catalogo.html" class="btn btn--primary">Ver catálogo</a>
+          <a href="pages/contacto.html" class="btn btn--ghost-light">Contactar</a>
+        </div>
+        <p class="cta-box__note">Fuente: PROMPERÚ (2025), MINCETUR (2025), Perú Moda Deco 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="nav__logo-icon">◈</span>
+            <span>Colca <em>Artesanías</em></span>
+          </div>
+          <p>Plataforma de exportación artesanal del Valle del Colca al mundo. Autenticidad, comercio justo e impacto social.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Plataforma</h4>
+            <ul>
+              <li><a href="pages/catalogo.html">Catálogo</a></li>
+              <li><a href="pages/artesanos.html">Artesanos</a></li>
+              <li><a href="#mercados">Mercados</a></li>
+              <li><a href="pages/contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Información</h4>
+            <ul>
+              <li><a href="#">Cómo funciona</a></li>
+              <li><a href="#">Envíos internacionales</a></li>
+              <li><a href="#">Política de autenticidad</a></li>
+              <li><a href="#">Comercio justo</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Contacto</h4>
+            <ul>
+              <li><a href="mailto:hola@colcaartesanias.pe">hola@colcaartesanias.pe</a></li>
+              <li><a href="#">Arequipa, Perú</a></li>
+              <li><a href="#">WhatsApp</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Colca Artesanías. Proyecto académico basado en PROMPERÚ, MINCETUR y Perú Moda Deco 2025.</p>
+        <p>Diseñado para: Artesanos del Valle del Colca · Versión 1.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
