@@ -1,156 +1,82 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   Colca Artesanías — Main JavaScript
-───────────────────────────────────────────────────────────────────────────── */
-
 'use strict';
 
-// ── Nav scroll behaviour ───────────────────────────────────────────────────
+/* ── Nav scroll ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  nav?.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// ── Mobile burger menu ─────────────────────────────────────────────────────
+/* ── Mobile burger ── */
 const burger = document.getElementById('navBurger');
 let mobileMenu = null;
-
 burger?.addEventListener('click', () => {
-  if (mobileMenu) {
-    mobileMenu.remove();
-    mobileMenu = null;
-    return;
-  }
+  if (mobileMenu) { mobileMenu.remove(); mobileMenu = null; return; }
   mobileMenu = document.createElement('div');
   mobileMenu.className = 'nav__mobile-menu';
+  mobileMenu.style.cssText = 'position:fixed;top:65px;left:0;right:0;background:rgba(26,16,10,.98);backdrop-filter:blur(16px);padding:2rem;z-index:99;border-bottom:1px solid rgba(196,118,74,.2);';
   mobileMenu.innerHTML = `
-    <style>
-      .nav__mobile-menu {
-        position: fixed;
-        top: 65px; left: 0; right: 0;
-        background: rgba(26,16,10,0.98);
-        backdrop-filter: blur(16px);
-        padding: 2rem;
-        z-index: 99;
-        border-bottom: 1px solid rgba(196,118,74,0.2);
-      }
-      .nav__mobile-menu a {
-        display: block;
-        font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(242,232,217,0.8);
-        padding: 0.9rem 0;
-        border-bottom: 1px solid rgba(196,118,74,0.1);
-        transition: color 0.2s;
-        font-family: 'Outfit', sans-serif;
-      }
-      .nav__mobile-menu a:hover { color: #C4764A; }
-      .nav__mobile-menu .mobile-cta {
-        display: block;
-        margin-top: 1.5rem;
-        text-align: center;
-        padding: 0.85rem;
-        background: #C4764A;
-        color: #FEFCF8;
-        border-radius: 4px;
-        letter-spacing: 0.1em;
-      }
-    </style>
-    <a href="#nosotros"  onclick="closeMobileMenu()">Nosotros</a>
-    <a href="#catalogo"  onclick="closeMobileMenu()">Catálogo</a>
-    <a href="#artesanos" onclick="closeMobileMenu()">Artesanos</a>
-    <a href="#mercados"  onclick="closeMobileMenu()">Mercados</a>
-    <a href="#contacto"  onclick="closeMobileMenu()">Contacto</a>
-    <a href="pages/catalogo.html" class="mobile-cta">Explorar tienda</a>
+    <a style="display:block;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,232,217,.8);padding:.9rem 0;border-bottom:1px solid rgba(196,118,74,.1);transition:color .2s" href="#nosotros"  onclick="this.closest('.nav__mobile-menu').remove()">Nosotros</a>
+    <a style="display:block;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,232,217,.8);padding:.9rem 0;border-bottom:1px solid rgba(196,118,74,.1)" href="#catalogo"  onclick="this.closest('.nav__mobile-menu').remove()">Catálogo</a>
+    <a style="display:block;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,232,217,.8);padding:.9rem 0;border-bottom:1px solid rgba(196,118,74,.1)" href="#artesanos" onclick="this.closest('.nav__mobile-menu').remove()">Artesanos</a>
+    <a style="display:block;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,232,217,.8);padding:.9rem 0;border-bottom:1px solid rgba(196,118,74,.1)" href="#mercados"  onclick="this.closest('.nav__mobile-menu').remove()">Mercados</a>
+    <a style="display:block;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,232,217,.8);padding:.9rem 0;border-bottom:1px solid rgba(196,118,74,.1)" href="#contacto"  onclick="this.closest('.nav__mobile-menu').remove()">Contacto</a>
+    <a style="display:block;margin-top:1.5rem;text-align:center;padding:.85rem;background:#C4764A;color:#FEFCF8;border-radius:4px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase" href="pages/catalogo.html">Explorar tienda</a>
   `;
   document.body.appendChild(mobileMenu);
 });
 
-window.closeMobileMenu = () => {
-  mobileMenu?.remove();
-  mobileMenu = null;
-};
+/* ── Reveal on scroll ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// ── Intersection Observer for reveal animations ───────────────────────────
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
-);
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ── Counter animation ─────────────────────────────────────────────────────
+/* ── Counter animation ── */
 function animateCounter(el) {
-  const target   = parseInt(el.dataset.target, 10);
-  const suffix   = el.dataset.suffix || '';
-  const duration = 2000;
-  const step     = 16;
-  const increment = target / (duration / step);
+  const target = parseInt(el.dataset.target, 10);
+  const suffix = el.dataset.suffix || '';
   let current = 0;
-
+  const step = target / (2000 / 16);
   const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
     el.textContent = Math.floor(current) + suffix;
-  }, step);
+  }, 16);
 }
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat__num[data-target]').forEach(el => counterObs.observe(el));
 
-const counterObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-
-document.querySelectorAll('.stat__num[data-target]').forEach(el => {
-  counterObserver.observe(el);
-});
-
-// ── Smooth scroll for anchor links ────────────────────────────────────────
+/* ── Smooth scroll ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 
-// ── Active nav link highlight on scroll ───────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav__links a');
-
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.style.color = link.getAttribute('href') === `#${id}`
-            ? '#C4764A'
-            : '';
-        });
+/* ── Lazy-load images with fade-in ── */
+if ('IntersectionObserver' in window) {
+  const imgObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const img = e.target;
+        const src = img.dataset.src;
+        if (src) {
+          img.src = src;
+          img.onload  = () => img.classList.add('loaded');
+          img.onerror = () => { /* keep gradient fallback */ };
+        }
+        imgObs.unobserve(img);
       }
     });
-  },
-  { threshold: 0.4 }
-);
-
-sections.forEach(s => sectionObserver.observe(s));
+  }, { rootMargin: '200px' });
+  document.querySelectorAll('img[data-src]').forEach(img => imgObs.observe(img));
+} else {
+  // Fallback: load all immediately
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    img.onload = () => img.classList.add('loaded');
+  });
+}
